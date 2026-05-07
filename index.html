@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+        }
+        .map {
+            background: #2d2d44;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: inline-block;
+        }
+        .title {
+            text-align: center;
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .plot {
+            width: 130px;
+            height: 110px;
+            margin: 5px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-align: center;
+            padding: 5px;
+        }
+        .plot-number {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 3px;
+        }
+        .plot-multiplier {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 3px 0;
+        }
+        .plot-price {
+            font-size: 10px;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 5px;
+            border-radius: 5px;
+            margin-top: 3px;
+        }
+        .row-label {
+            display: flex;
+            align-items: center;
+            color: #ffd700;
+            font-weight: bold;
+            margin-right: 15px;
+            width: 100px;
+            text-align: right;
+        }
+        .legend {
+            margin-top: 30px;
+            padding: 15px;
+            background: #1a1a2e;
+            border-radius: 10px;
+            color: white;
+        }
+        .legend-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .x5 { background: linear-gradient(135deg, #ff6b6b, #c92a2a); color: white; }
+        .x3 { background: linear-gradient(135deg, #ffd93d, #f59f00); color: #333; }
+        .x2 { background: linear-gradient(135deg, #6c5ce7, #4b3db2); color: white; }
+        .x1 { background: linear-gradient(135deg, #00cec9, #008080); color: white; }
+        .entrance { background: linear-gradient(135deg, #a8e6cf, #1abc9c); color: #333; }
+        .owned { background: linear-gradient(135deg, #51cf66, #2b8a3e); color: white; }
+        .footer {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <div class="title">🗺️ GAS FIELD MAP - PLOT PRICES & MULTIPLIERS</div>
+        
+        <div style="display: flex; justify-content: center;">
+            <div class="row-label">ROW 1 (Back)</div>
+            <div>
+                <div class="row">
+                    <div class="plot x3">
+                        <div class="plot-number">Plot 1</div>
+                        <div class="plot-multiplier">x3 Gas Boost</div>
+                        <div class="plot-price">💰 $1 Trillion</div>
+                    </div>
+                    <div class="plot x5">
+                        <div class="plot-number">Plot 2</div>
+                        <div class="plot-multiplier">x5 Gas Boost</div>
+                        <div class="plot-price">💰 $99 Trillion</div>
+                    </div>
+                    <div class="plot x3">
+                        <div class="plot-number">Plot 3</div>
+                        <div class="plot-multiplier">x3 Gas Boost</div>
+                        <div class="plot-price">💰 $100 Billion</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <div class="row-label">ROW 2</div>
+            <div>
+                <div class="row">
+                    <div class="plot x2">
+                        <div class="plot-number">Plot 4</div>
+                        <div class="plot-multiplier">x2 Gas Boost</div>
+                        <div class="plot-price">💰 $500 Million</div>
+                    </div>
+                    <div class="plot x2">
+                        <div class="plot-number">Plot 5</div>
+                        <div class="plot-multiplier">x2 Gas Boost</div>
+                        <div class="plot-price">💰 $100 Million</div>
+                    </div>
+                    <div class="plot x2">
+                        <div class="plot-number">Plot 6</div>
+                        <div class="plot-multiplier">x2 Gas Boost</div>
+                        <div class="plot-price">💰 $2.5 Million</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <div class="row-label">ROW 3</div>
+            <div>
+                <div class="row">
+                    <div class="plot x1">
+                        <div class="plot-number">Plot 7</div>
+                        <div class="plot-multiplier">x1 Gas Boost</div>
+                        <div class="plot-price">💰 $500,000</div>
+                    </div>
+                    <div class="plot x1">
+                        <div class="plot-number">Plot 8</div>
+                        <div class="plot-multiplier">x1 Gas Boost</div>
+                        <div class="plot-price">💰 $50,000</div>
+                    </div>
+                    <div class="plot x1">
+                        <div class="plot-number">Plot 9</div>
+                        <div class="plot-multiplier">x1 Gas Boost</div>
+                        <div class="plot-price">💰 $150,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+            <div class="row-label">ROW 4 (Front)</div>
+            <div>
+                <div class="row">
+                    <div class="plot x1">
+                        <div class="plot-number">Plot 10</div>
+                        <div class="plot-multiplier">x1 Gas Boost</div>
+                        <div class="plot-price">💰 $20,000</div>
+                    </div>
+                    <div class="plot owned">
+                        <div class="plot-number">Plot 11</div>
+                        <div class="plot-multiplier">🚪 ENTRANCE</div>
+                        <div class="plot-price">✅ Owned (Start)</div>
+                    </div>
+                    <div class="plot x1">
+                        <div class="plot-number">Plot 12</div>
+                        <div class="plot-multiplier">x1 Gas Boost</div>
+                        <div class="plot-price">💰 $5,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color x5"></span> x5 - Super Boost
+            </div>
+            <div class="legend-item">
+                <span class="legend-color x3"></span> x3 - High Boost
+            </div>
+            <div class="legend-item">
+                <span class="legend-color x2"></span> x2 - Medium Boost
+            </div>
+            <div class="legend-item">
+                <span class="legend-color x1"></span> x1 - Normal
+            </div>
+            <div class="legend-item">
+                <span class="legend-color entrance"></span> 🚪 Entrance
+            </div>
+            <div class="legend-item">
+                <span class="legend-color owned"></span> ✅ Owned
+            </div>
+        </div>
+        
+        <div class="footer">
+            💡 Gas production = Base allocation × Plot Multiplier<br>
+            Example: 100 gas/s in Plot 2 (x5) = 500 effective gas/s<br>
+            💰 Purchase plots to unlock higher multipliers!
+        </div>
+    </div>
+</body>
+</html>
