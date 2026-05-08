@@ -109,6 +109,7 @@ module.exports = {
     
     const totalCost = drill.cost * amount;
     const costRemaining = totalCost - cash;
+    const gasNeeded = costRemaining / price;
     
     if (costRemaining <= 0) {
       const embed = new EmbedBuilder()
@@ -139,6 +140,7 @@ module.exports = {
         { name: '💰 Total Cost', value: `\`$${formatNumber(totalCost)}\``, inline: true },
         { name: '💵 Your Cash', value: `\`$${formatNumber(cash)}\``, inline: true },
         { name: '📉 Cash Needed', value: `\`$${formatNumber(costRemaining)}\``, inline: true },
+        { name: '⛽ Gas Needed', value: `\`${formatNumber(gasNeeded)} gas\``, inline: true },
         { name: '⛽ Your Gas/s', value: `\`${formatNumber(totalBoostedGas)} gas/s ${gasSource}\``, inline: false },
         { name: '💰 Gas Price', value: `\`$${price}\``, inline: true },
         { name: '📊 Cash Boost', value: `\`${boost}% ${boostSource}\``, inline: true },
